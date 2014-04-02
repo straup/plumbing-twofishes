@@ -1,0 +1,7 @@
+#!/bin/sh
+
+QUERY=$1
+CURL=`which curl`
+
+${CURL} -X GET -F query='$QUERY' http://localhost:8081/'
+
