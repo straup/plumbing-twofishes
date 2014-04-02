@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# https://github.com/foursquare/twofishes/blob/master/docs/twofishes_requests.md#the-combined--debug-interfaces
+
+CURL=`which curl`
+PYTHON=`which  python`
+
+TWOFISHES='http://localhost:8081'
+
+QUERY=$1
+ENC_QUERY=`python -c "import sys, urllib as ul; print ul.quote_plus(' '.join(sys.argv[1:]))" ${QUERY}`
+
+${CURL} ${TWOFISHES}?slug=${ENC_QUERY}
+exit
+
