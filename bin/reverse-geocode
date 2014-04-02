@@ -10,6 +10,6 @@ TWOFISHES='http://localhost:8081'
 QUERY=$@
 ENC_QUERY=`python -c "import sys, urllib as ul; print ul.quote_plus(' '.join(sys.argv[1:]))" ${QUERY}`
 
-${CURL} ${TWOFISHES}?query=${ENC_QUERY}
+${CURL} ${TWOFISHES}?ll=${ENC_QUERY}
 exit
 
